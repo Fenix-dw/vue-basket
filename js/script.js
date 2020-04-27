@@ -23,3 +23,22 @@ new Vue({
 			},
 		}
 	});
+
+new Vue({
+	el: "#table",
+	data: {
+		url: "/inc/ajax.php",
+		data: [],
+	},
+	methods: {
+		getProducts() {
+			const params = new URLSearchParams();
+			params.append("action", "getProducts");
+			
+			axios.post(this.url).then((response) => {
+				
+				response.data = this.data;
+			});
+		},
+	}
+});

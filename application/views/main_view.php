@@ -2,6 +2,7 @@
 	<div class="row justify-content-md-center mt-4">
 		<div class="col-md-8">
 			<div id="table">
+
 				<h2>Корзина</h2>
 				<table class="table">
 				  <thead class="thead-light">
@@ -31,6 +32,8 @@
 		</div>
 		<div class="col-md-3">
 			<div id="form-product">
+			<button @click="getProducts">получить</button>
+				
 				<h2>Новый товар</h2>
 				<form @submit.prevent="setProduct">
 				  <div class="form-group mb-0">
