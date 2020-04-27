@@ -8,7 +8,7 @@ class Database
 	public $isConn;
 	protected $datab;
 	
-	public function __construct($username = "root", $password = "", $host = "localhost", $dbname = "shop", $option = [])
+	public function __construct($username = "root", $password = "", $host = "localhost", $dbname = "market", $option = [])
 	{	
 		$this->isConn = true;
 		try {

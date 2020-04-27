@@ -1,5 +1,5 @@
-var app = new Vue({
-		el: "#wrap",
+new Vue({
+		el: "#form-product",
 		data: {
 			show: false,
 			title: "",

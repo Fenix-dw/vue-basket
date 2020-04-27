@@ -1,10 +1,39 @@
 <div class="container">
-	<div class="row justify-content-md-center">
-		<div class="col-md-4">
-			<div id="wrap">
+	<div class="row justify-content-md-center mt-4">
+		<div class="col-md-8">
+			<div id="table">
+				<h2>Корзина</h2>
+				<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+				      <th scope="col-1">#</th>
+				      <th scope="col-2">Название</th>
+				      <th scope="col-1">Цена</th>
+				      <th scope="col-2">Количество</th>
+				      <th scope="col-6">Действие</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>Mark</td>
+				      <td>Otto</td>
+				      <td>@mdo</td>
+				      <td>
+				      		<input type="text" value="2" class="form-group">
+				      		<button class="btn btn-danger">Удалить</button>
+				      </td>
+				    </tr>
+				   
+				  </tbody>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div id="form-product">
+				<h2>Новый товар</h2>
 				<form @submit.prevent="setProduct">
-					<h2>Новый товар</h2>
-				  <div class="form-group">
+				  <div class="form-group mb-0">
 				    <label for="exampleInputEmail1">Название</label>
 				    <input type="text" class="form-control" v-model="title" required>
 				  </div>
