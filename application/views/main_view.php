@@ -1,8 +1,7 @@
-<div class="container">
+<div id="wrap" class="container">
 	<div class="row justify-content-md-center mt-4">
-		<div class="col-md-8">
+		<div class="col-md-7">
 			<div id="table">
-
 				<h2>Корзина</h2>
 				<table class="table">
 				  <thead class="thead-light">
@@ -15,25 +14,34 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <th scope="row">1</th>
-				      <td>Mark</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				      <td>
-				      		<input type="text" value="2" class="form-group">
-				      		<button class="btn btn-danger">Удалить</button>
+				    <tr v-for="product in products">
+				      <th scope="row">{{ product.id }}</th>
+				      <td>{{ product.title }}</td>
+				      <td >{{ product.price * product.quantity }}$</td>
+				      <td>{{ product.quantity }}</td>
+				      <td class="form-group" >
+				      	<div style="width: 100%">
+				      		<input type="number" v-model="product.quantity" @change="changeProduct(product.id, product.quantity)"  style="width: 20%">
+				      		<button @click="deleteProduct( product.id)" class="btn btn-danger">Удалить</button>
+				      	</div>
 				      </td>
 				    </tr>
-				   
 				  </tbody>
 				</table>
+					<div class="coll">
+						<h3>Количество товаров: {{ counts() }}</h3>
+						<h3>Общая стоимость: {{ sum() }}$</h3>
+						<transition name="fade">
+						    <div class="alert alert-success alert-dismissible fade show"  v-if="show" role="alert">
+							  Заказ оформлен
+							</div>					
+						</transition>							
+						<button @click="checkout" class="btn btn-warning">Оформить заказ</button>
+					</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div id="form-product">
-			<button @click="getProducts">получить</button>
-				
 				<h2>Новый товар</h2>
 				<form @submit.prevent="setProduct">
 				  <div class="form-group mb-0">
@@ -46,16 +54,6 @@
 				  </div>
 				  <button type="submit" class="btn btn-success">Добавить товар</button>
 				</form>
-				<div class="col mt-3">
-					<transition name="fade">
-					    <div class="alert alert-success alert-dismissible fade show"  v-if="show" role="alert">
-						  {{ response }}
-						  <button type="button" class="close" @click="[show = !show]" data-dismiss="alert" aria-label="Close">
-						    <span aria-hidden="true">&times;</span>
-						  </button>
-						</div>					
-					</transition>
-				</div>
 			</div>
 		</div>
 	</div>
